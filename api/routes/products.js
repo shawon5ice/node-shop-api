@@ -7,7 +7,14 @@ router.get('/',(req, res, next)=> {
 })
 
 router.post('/',(req, res, next)=> {
-    res.status(201).json({message:'Handling post requests to /products route'});
+    const product = {
+        name: req.body.name,
+        price: req.body.price
+    }
+    res.status(201).json({
+        message:'Handling post requests to /products route',
+        createdProduct: product
+    });
 })
 
 router.get('/:productId',(req, res, next)=> {
