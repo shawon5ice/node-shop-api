@@ -4,6 +4,18 @@ const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+
+
+mongoose.connect(
+    'mongodb+srv://node-shop:'+
+    process.env.MONGO_ATLAS_PW+
+    '@node-rest-shop.suw8p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    {
+        useMongoClient: true
+    }
+)
+
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
