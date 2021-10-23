@@ -8,9 +8,7 @@ const mongoose = require('mongoose')
 
 
 mongoose.connect(
-    'mongodb+srv://node-shop:'+
-    process.env.MONGO_ATLAS_PW+
-    '@node-rest-shop.suw8p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    'mongodb+srv://node-shop:node-shop@node-rest-shop.suw8p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
     {
         useMongoClient: true
     }
