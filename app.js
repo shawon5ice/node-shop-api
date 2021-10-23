@@ -7,17 +7,16 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 
-mongoose.connect(
-    'mongodb+srv://node-shop:node-shop@node-rest-shop.suw8p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-    {
-        useMongoClient: true
-    }
-)
+app.use(express.json())
 
 
-app.use(morgan('dev'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended:false }))
+mongoose.connect("mongodb://localhost/node-shop-api").then(()=>{
+    console.log("Connection established")
+}).catch((e)=>{
+    console.log("Connection Failed")
+})
+
+
 
 // app.use((req, res, next) => {
 //     const error = new Error('Not Found')
