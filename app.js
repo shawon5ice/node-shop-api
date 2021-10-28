@@ -2,14 +2,14 @@ const express = require('express');
 const app = express();
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
+const userRoutes = require('./api/routes/users')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 
 app.use(express.json())
-
-
+app.use('/uploads',express.static('uploads'))
 mongoose.connect("mongodb://localhost/node-shop-api").then(()=>{
     console.log("Connection established")
 }).catch((e)=>{
@@ -46,4 +46,5 @@ app.use((error, req, res, next) => {
 })
 app.use('/products',productRoutes);
 app.use('/orders',orderRoutes);
+app.use('/users',userRoutes);
 module.exports = app;
